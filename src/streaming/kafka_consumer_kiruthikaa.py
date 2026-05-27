@@ -78,6 +78,7 @@ DATA_DIR: Final[Path] = ROOT_DIR / "data"
 OUTPUT_DIR: Final[Path] = DATA_DIR / "output"
 
 OUTPUT_CSV: Final[Path] = OUTPUT_DIR / "consumed_sales.csv"
+PAYMENT_SUMMARY_CSV: Final[Path] = OUTPUT_DIR / "payment_summary.csv"
 
 REGIONS_CSV: Final[Path] = DATA_DIR / "regions.csv"
 PRODUCTS_CSV: Final[Path] = DATA_DIR / "products.csv"
@@ -217,6 +218,9 @@ def initialize_output() -> RunningStats:
         OUTPUT_CSV.unlink()
     LOG.info(f"Output CSV cleared: {OUTPUT_CSV.name}")
 
+    if PAYMENT_SUMMARY_CSV.exists():
+        PAYMENT_SUMMARY_CSV.unlink()
+    LOG.info(f"Payment summary CSV cleared: {PAYMENT_SUMMARY_CSV.name}")
     return RunningStats()
 
 
@@ -367,6 +371,26 @@ def consume_messages(
         LOG.info(f"paypal={paypal_count}")
         LOG.info(f"apple_pay={apple_pay_count}")
         LOG.info(f"credit_card={credit_card_count}")
+
+    append_csv_row(
+    path=PAYMENT_SUMMARY_CSV,
+    row={"payment_method": "paypal", "count": paypal_count},
+    fieldnames=["payment_method", "count"],
+)
+
+    append_csv_row(
+    path=PAYMENT_SUMMARY_CSV,
+    row={"payment_method": "apple_pay", "count": apple_pay_count},
+    fieldnames=["payment_method", "count"],
+)
+
+    append_csv_row(
+    path=PAYMENT_SUMMARY_CSV,
+    row={"payment_method": "credit_card", "count": credit_card_count},
+    fieldnames=["payment_method", "count"],
+)
+
+    LOG.info(f"WROTE PAYMENT_SUMMARY_CSV = {PAYMENT_SUMMARY_CSV}")
 
     return consumed_count, skipped_count
 
