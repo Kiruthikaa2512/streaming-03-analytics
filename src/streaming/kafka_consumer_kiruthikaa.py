@@ -373,22 +373,22 @@ def consume_messages(
         LOG.info(f"credit_card={credit_card_count}")
 
     append_csv_row(
-    path=PAYMENT_SUMMARY_CSV,
-    row={"payment_method": "paypal", "count": paypal_count},
-    fieldnames=["payment_method", "count"],
-)
+        path=PAYMENT_SUMMARY_CSV,
+        row={"payment_method": "paypal", "count": paypal_count},
+        fieldnames=["payment_method", "count"],
+    )
 
     append_csv_row(
-    path=PAYMENT_SUMMARY_CSV,
-    row={"payment_method": "apple_pay", "count": apple_pay_count},
-    fieldnames=["payment_method", "count"],
-)
+        path=PAYMENT_SUMMARY_CSV,
+        row={"payment_method": "apple_pay", "count": apple_pay_count},
+        fieldnames=["payment_method", "count"],
+    )
 
     append_csv_row(
-    path=PAYMENT_SUMMARY_CSV,
-    row={"payment_method": "credit_card", "count": credit_card_count},
-    fieldnames=["payment_method", "count"],
-)
+        path=PAYMENT_SUMMARY_CSV,
+        row={"payment_method": "credit_card", "count": credit_card_count},
+        fieldnames=["payment_method", "count"],
+    )
 
     LOG.info(f"WROTE PAYMENT_SUMMARY_CSV = {PAYMENT_SUMMARY_CSV}")
 

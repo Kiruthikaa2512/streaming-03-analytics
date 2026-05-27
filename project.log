@@ -949,3 +949,5 @@
 2026-05-26 21:32:13 | INFO | C03 | ========================
 2026-05-26 21:32:13 | INFO | C03 | Consumer executed successfully!
 2026-05-26 21:32:13 | INFO | C03 | ========================
+2026-05-26 22:28:19 | DEBUG | C03 | No variables found in .env
+2026-05-26 22:28:19 | DEBUG | P03 | No variables found in .env
