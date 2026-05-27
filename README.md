@@ -110,11 +110,11 @@ code .
 ### In VS Code Terminal 1: Start Kafka (kafka)
 
 For full instructions see
-[**start kafka**](https://denisecase.github.io/pro-analytics-02/kafka/start-kafka/).
+[**start kafka**](https://kiruthikaa2512.github.io/pro-analytics-02/kafka/start-kafka/).
 
 If any command fails,
 repeat the steps at
-[**install kafka**](https://denisecase.github.io/pro-analytics-02/kafka/install-kafka/)
+[**install kafka**](https://kiruthikaa2512.github.io/pro-analytics-02/kafka/install-kafka/)
 until starting up is reliable.
 
 Open a new VS Code terminal. Rename it `kafka`.
@@ -231,6 +231,21 @@ To start fresh, see
 to delete the topic and recreate it.
 
 </details>
+
+## Custom Retail Payment Analytics Enhancement
+
+This project was customized to extend the Kafka consumer with real-time retail payment analytics.
+
+### Enhancements Added
+- Created a custom consumer file: `kafka_consumer_kiruthikaa.py`
+- Added payment method transaction tracking
+- Generated a new `payment_summary.csv` analytics output file
+- Logged real-time payment summaries while consuming Kafka messages
+
+### GitHub Pages Documentation
+Detailed project documentation is available here:
+
+https://kiruthikaa2512.github.io/streaming-03-analytics/
 
 ## Notes
 
